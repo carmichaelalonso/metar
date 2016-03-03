@@ -199,16 +199,16 @@ def xlate_loc( loc ):
   
 ## translation of the sky-condition codes into english
 
-SKY_COVER = { "SKC":"clear",
-              "CLR":"clear",
-              "NSC":"clear",
-              "NCD":"clear",
-              "FEW":"a few ",
-              "SCT":"scattered ",
-              "BKN":"broken ",
-              "OVC":"overcast",
-              "///":"",
-              "VV":"indefinite ceiling" }
+SKY_COVER = { "SKC":"Clear",
+              "CLR":"Clear",
+              "NSC":"Clear",
+              "NCD":"Clear",
+              "FEW":"A few ",
+              "SCT":"Scattered ",
+              "BKN":"Broken ",
+              "OVC":"Overcast",
+              "///":"Unknown",
+              "VV":"Indefinite ceiling" }
                           
 CLOUD_TYPE = { "TCU":"towering cumulus",
                "CU":"cumulus",
@@ -1006,6 +1006,50 @@ class Metar(object):
       return reportTime
     else:
       return "Unknown"
+
+  def report_temperature( self ):
+    """
+      Returns temperature
+    """
+    temp = self.temp.string("C")
+
+    if temp:
+      return temp
+    else:
+      return "Unknown"
+
+  def report_dewpoint( self ):
+    """
+      Returns dew point
+    """
+    dp = self.dewpt.string("C")
+
+    if dp:
+      return dp
+    else:
+      return "Unknown"
+
+  def report_pressure( self ):
+    """
+      Returns pressure
+    """
+    pressure = self.press_sea_level.string("mb")
+
+    if pressure:
+      return pressure
+    else:
+      return "Unknown"
+
+  def report_remarks( self ):
+    """
+      Returns remarks
+    """
+    remarks = self.remarks("\n- ")
+
+    if remarks:
+      return remarks
+    else:
+      return "None"
 
   def report_type( self ):
       """
