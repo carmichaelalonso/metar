@@ -996,6 +996,17 @@ class Metar(object):
       lines.append("METAR: "+self.code)
       return string.join(lines,"\n")
 
+  def report_time( self ):
+    """
+      Returns time of report
+    """
+    reportTime = self.time.strftime("%A %d %B at %H:%M")
+
+    if reportTime:
+      return reportTime
+    else:
+      return "Unknown"
+
   def report_type( self ):
       """
       Return a textual description of the report type.
