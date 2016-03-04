@@ -1020,8 +1020,8 @@ class Metar(object):
 
     try:
 
-      if self.temp.string("C"):
-        return self.temp.string("C")
+      if self.temp.value("C"):
+        return self.temp.value("C")
       else:
         return "Unknown"
 
@@ -1035,8 +1035,8 @@ class Metar(object):
 
     try:
 
-      if self.dewpt.string("C"):
-        return self.dewpt.string("C")
+      if self.dewpt.value("C"):
+        return self.dewpt.value("C")
       else:
         return "Unknown"
 
@@ -1050,8 +1050,8 @@ class Metar(object):
   
     try:
 
-      if self.press.string("mb"):
-        return self.press.string("mb")
+      if self.press.value("mb"):
+        return self.press.value("mb")
       else:
         return "Unknown"
 
@@ -1066,8 +1066,8 @@ class Metar(object):
 
     try:
     
-      if self.press_sea_level.string("mb"):
-        return self.press_sea_level.string("mb")
+      if self.press_sea_level.value("mb"):
+        return self.press_sea_level.value("mb")
       else:
         return "Unknown"
 
