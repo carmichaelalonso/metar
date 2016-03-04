@@ -1000,11 +1000,17 @@ class Metar(object):
     """
       Returns time of report
     """
+
+    try:
+
     reportTime = self.time.strftime("%A %d %B at %H:%M")
 
-    if reportTime:
-      return reportTime
-    else:
+      if reportTime:
+        return reportTime
+      else:
+        return "Unknown"
+
+    except Exception:
       return "Unknown"
 
   def report_temperature( self ):
@@ -1012,9 +1018,14 @@ class Metar(object):
       Returns temperature
     """
 
-    if self.temp.string("C"):
-      return self.temp.string("C")
-    else:
+    try:
+
+      if self.temp.string("C"):
+        return self.temp.string("C")
+      else:
+        return "Unknown"
+
+    except Exception:
       return "Unknown"
 
   def report_dewpoint( self ):
@@ -1022,20 +1033,45 @@ class Metar(object):
       Returns dew point
     """
 
-    if self.dewpt.string("C"):
-      return self.dewpt.string("C")
-    else:
+    try:
+
+      if self.dewpt.string("C"):
+        return self.dewpt.string("C")
+      else:
+        return "Unknown"
+
+    except Exception:
       return "Unknown"
 
   def report_pressure( self ):
     """
       Returns pressure
     """
-    
+  
+    try:
 
-    if self.press_sea_level.string("mb"):
-      return self.press_sea_level.string("mb")
-    else:
+      if self.press.string("mb"):
+        return self.press.string("mb")
+      else:
+        return "Unknown"
+
+    except Exception:
+      return "Unknown"
+
+
+  def report_pressure_sea( self ):
+    """
+      Returns pressure at sea level
+    """
+
+    try:
+    
+      if self.press_sea_level.string("mb"):
+        return self.press_sea_level.string("mb")
+      else:
+        return "Unknown"
+
+    except Exception:
       return "Unknown"
 
   def report_remarks( self ):
