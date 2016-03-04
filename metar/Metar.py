@@ -1003,7 +1003,7 @@ class Metar(object):
 
     try:
 
-    reportTime = self.time.strftime("%A %d %B at %H:%M")
+      reportTime = self.time.strftime("%A %d %B at %H:%M")
 
       if reportTime:
         return reportTime
