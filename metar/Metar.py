@@ -1011,10 +1011,9 @@ class Metar(object):
     """
       Returns temperature
     """
-    temp = self.temp.string("C")
 
-    if temp:
-      return temp
+    if self.temp.string("C"):
+      return self.temp.string("C")
     else:
       return "Unknown"
 
@@ -1022,10 +1021,9 @@ class Metar(object):
     """
       Returns dew point
     """
-    dp = self.dewpt.string("C")
 
-    if dp:
-      return dp
+    if self.dewpt.string("C"):
+      return self.dewpt.string("C")
     else:
       return "Unknown"
 
@@ -1033,10 +1031,10 @@ class Metar(object):
     """
       Returns pressure
     """
-    pressure = self.press_sea_level.string("mb")
+    
 
-    if pressure:
-      return pressure
+    if self.press_sea_level.string("mb"):
+      return self.press_sea_level.string("mb")
     else:
       return "Unknown"
 
@@ -1044,10 +1042,9 @@ class Metar(object):
     """
       Returns remarks
     """
-    remarks = self.remarks("\n- ")
 
-    if remarks:
-      return remarks
+    if self.remarks("\n- "):
+      return self.remarks("\n- ")
     else:
       return "None"
 
