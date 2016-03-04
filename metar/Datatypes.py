@@ -303,10 +303,10 @@ class distance(object):
 class direction(object):
   """A class representing a compass direction."""
   
-  compass_dirs = { "N":  0.0, "NNE": 22.5, "NE": 45.0, "ENE": 67.5, 
-                   "E": 90.0, "ESE":112.5, "SE":135.0, "SSE":157.5,
-                   "S":180.0, "SSW":202.5, "SW":225.0, "WSW":247.5,
-                   "W":270.0, "WNW":292.5, "NW":315.0, "NNW":337.5 }
+  compass_dirs = { "North":  0.0, "North-east": 45.0, 
+                   "East": 90.0, "South-east":135.0, 
+                   "South":180.0, "South-west":225.0,
+                   "West":270.0, "North-west":315.0, }
 
   def __init__( self, d ):
     if direction.compass_dirs.has_key(d):
@@ -333,7 +333,7 @@ class direction(object):
   def compass( self ):
     """Return the compass direction, e.g., "N", "ESE", etc.)."""
     if not self._compass:
-      degrees = 22.5 * round(self._degrees/22.5)
+      degrees = 22.5 * round(self._degrees/45)
       if degrees == 360.0:
         self._compass = "N"
       else:
