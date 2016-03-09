@@ -334,7 +334,7 @@ class direction(object):
   def compass( self ):
     """Return the compass direction, e.g., "N", "ESE", etc.)."""
     if not self._compass:
-      degrees = 22.5 * round(self._degrees/45)
+      degrees = 45 * round(self._degrees/45)
       print degrees
       if degrees == 360.0:
         self._compass = "North"
