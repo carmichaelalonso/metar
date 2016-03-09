@@ -285,10 +285,10 @@ LIGHTNING_TYPE = { "IC":"intracloud",
                    "CG":"cloud-to-ground",
                    "CA":"cloud-to-air" }
 
-REPORT_TYPE = { "METAR":"routine report",
-                "SPECI":"special report",
-                "AUTO":"automatic report",
-                "COR":"manually corrected report" }
+REPORT_TYPE = { "METAR":"Routine report",
+                "SPECI":"Special report",
+                "AUTO":"Automatic report",
+                "COR":"Manually corrected report" }
 
 ## Helper functions
 
