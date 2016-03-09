@@ -1089,7 +1089,7 @@ class Metar(object):
       Return a textual description of the report type.
       """
       if self.type == None:
-          text = "unknown report type"
+          text = "Unknown report type"
       elif REPORT_TYPE.has_key(self.type):
           text  = REPORT_TYPE[self.type]
       else:
@@ -1110,13 +1110,13 @@ class Metar(object):
       Units may be specified as "MPS", "KT", "KMH", or "MPH".
       """
       if self.wind_speed == None:
-          return "missing"
+          return "Missing"
       elif self.wind_speed.value() == 0.0:
-          text = "calm"
+          text = "Calm"
       else:
           wind_speed = self.wind_speed.string(units)
           if not self.wind_dir:
-              text = "variable at %s" % wind_speed
+              text = "Variable at %s" % wind_speed
           elif self.wind_dir_from:
               text = "%s to %s at %s" % \
                              (self.wind_dir_from.compass(), self.wind_dir_to.compass(), wind_speed)
@@ -1133,9 +1133,9 @@ class Metar(object):
       Units may be specified as "MPS", "KT", "KMH", or "MPH".
       """
       if self.wind_speed_peak == None:
-          return "missing"
+          return "Missing"
       elif self.wind_speed_peak.value() == 0.0:
-          text = "calm"
+          text = "Calm"
       else:
           wind_speed = self.wind_speed_peak.string(units)
           if not self.wind_dir_peak:
@@ -1153,7 +1153,7 @@ class Metar(object):
       Units may be specified as "MPS", "KT", "KMH", or "MPH".
       """
       if self.wind_shift_time == None:
-          return "missing"
+          return "Missing"
       else:
           return self.wind_shift_time.strftime('%H:%M')
 
@@ -1164,7 +1164,7 @@ class Metar(object):
       Units may be statute miles ("SM") or meters ("M").
       """
       if self.vis == None:
-          return "missing"
+          return "Missing"
       if self.vis_dir:
           text = "%s to %s" % (self.vis.string(units), self.vis_dir.compass())
       else:
@@ -1183,9 +1183,9 @@ class Metar(object):
       lines = []
       for name,low,high in self.runway:
           if low != high:
-              lines.append("on runway %s, from %d to %s" % (name, low.value(units), high.string(units)))
+              lines.append("On runway %s, from %d to %s" % (name, low.value(units), high.string(units)))
           else:
-              lines.append("on runway %s, %s" % (name, low.string(units)))
+              lines.append("On runway %s, %s" % (name, low.string(units)))
       return string.join(lines,"; ")
   
   def present_weather( self ):

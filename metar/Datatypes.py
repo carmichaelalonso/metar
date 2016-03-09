@@ -306,7 +306,8 @@ class direction(object):
   compass_dirs = { "North":  0.0, "North-east": 45.0, 
                    "East": 90.0, "South-east":135.0, 
                    "South":180.0, "South-west":225.0,
-                   "West":270.0, "North-west":315.0, }
+                   "West":270.0, "North-west":315.0,
+                   "North": 360.0 }
 
   def __init__( self, d ):
     if direction.compass_dirs.has_key(d):
@@ -334,8 +335,9 @@ class direction(object):
     """Return the compass direction, e.g., "N", "ESE", etc.)."""
     if not self._compass:
       degrees = 22.5 * round(self._degrees/45)
+      print degrees
       if degrees == 360.0:
-        self._compass = "N"
+        self._compass = "North"
       else:
         for name, d in direction.compass_dirs.iteritems():
           if d == degrees:
