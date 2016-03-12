@@ -338,6 +338,8 @@ class direction(object):
       print degrees
       if degrees == 360.0:
         self._compass = "North"
+      elif degrees == 0.0:
+        self._compass = "North"
       else:
         for name, d in direction.compass_dirs.iteritems():
           if d == degrees:
