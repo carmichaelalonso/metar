@@ -1126,6 +1126,19 @@ class Metar(object):
               text += ", gusting to %s" % self.wind_gust.string(units)
       return text
 
+  def wind_dir( self ):
+    """
+    Returns wind direction
+    
+    """
+
+    if not self.wind_dir:
+        value = -1
+    else:
+        value = self.wind_dir.value()
+            
+    return value
+
   def peak_wind( self, units="KT" ):
       """
       Return a textual description of the peak wind conditions.
