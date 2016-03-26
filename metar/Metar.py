@@ -1126,7 +1126,7 @@ class Metar(object):
               text += ", gusting to %s" % self.wind_gust.string(units)
       return text
 
-  def wind_dir( self ):
+  def wind_direction( self ):
     """
     Returns wind direction
     
@@ -1135,7 +1135,6 @@ class Metar(object):
     if not self.wind_dir:
       value = -1
     else:
-      print self.wind_dir
       value = self.wind_dir.value()
 
     return value
