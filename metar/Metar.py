@@ -1133,10 +1133,11 @@ class Metar(object):
     """
 
     if not self.wind_dir:
-        value = -1
+      value = -1
     else:
-        value = self.wind_dir.value()
-            
+      print self.wind_dir
+      value = self.wind_dir.value()
+
     return value
 
   def peak_wind( self, units="KT" ):
