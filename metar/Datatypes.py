@@ -329,7 +329,7 @@ class direction(object):
     
   def string( self ):
     """Return a string representation of the numerical direction."""
-    return "%.0f degrees" % self._degrees
+    return "%.0f˚" % self._degrees
     
   def compass( self ):
     """Return the compass direction, e.g., "N", "ESE", etc.)."""

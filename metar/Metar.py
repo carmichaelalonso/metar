@@ -1119,9 +1119,9 @@ class Metar(object):
               text = "Variable at %s" % wind_speed
           elif self.wind_dir_from:
               text = "%s to %s at %s" % \
-                             (self.wind_dir_from.compass(), self.wind_dir_to.compass(), wind_speed)
+                             (self.wind_dir_from.string(), self.wind_dir_to.string(), wind_speed)
           else:
-              text = "%s at %s" % (self.wind_dir.compass(), wind_speed)
+              text = "%s at %s" % (self.wind_dir.string(), wind_speed)
           if self.wind_gust:
               text += ", gusting to %s" % self.wind_gust.string(units)
       return text
@@ -1141,7 +1141,7 @@ class Metar(object):
           if not self.wind_dir_peak:
               text = wind_speed
           else:
-              text = "%s at %s" % (self.wind_dir_peak.compass(), wind_speed)
+              text = "%s at %s" % (self.wind_dir_peak.string(), wind_speed)
               if not self.peak_wind_time == None:
                   text += " at %s" % self.peak_wind_time.strftime('%H:%M')
       return text
